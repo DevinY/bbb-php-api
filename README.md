@@ -10,7 +10,9 @@ https://yty.ccc.tc/demo/
 Create Meeting and Join Link.
 <pre>
 &lt;?php
-use Deviny\BigBlueButtonPhpApi\Bbb;
+
+use DevinY\BigBlueButtonPhpApi\Bbb;
+require __DIR__.'/../vendor/autoload.php';
 define("DEFAULT_SECURITY_SALT", "YOUR SALT");
 define("DEFAULT_SERVER_BASE_URL", "YOUR SERVER URL");
 
