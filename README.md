@@ -55,4 +55,3 @@ $meeting->setAutoStartRecording(false);
 $meeting->setAllowStartStopRecording(true);
 $meeting->setLogoutUrl('https://YourDomain');
 </pre>
-# bbb-php-api
