@@ -3,7 +3,6 @@
     "description": "Simple PHP API of The BigBlueButton.",
     "keywords": ["bbb", "BigBlueButton"],
     "license": "GPL 3.0",
-    "type": "project",
     "authors": [
         {
             "name": "Devin Yang",
