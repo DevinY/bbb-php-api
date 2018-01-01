@@ -1,0 +1,21 @@
+{
+    "name": "deviny/bbb-php-api",
+    "description": "Simple PHP API of The BigBlueButton.",
+    "keywords": ["bbb", "BigBlueButton"],
+    "license": "GPL 3.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Devin Yang",
+            "email": "devin@ccc.tc"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DevinY\\BigBlueButtonPhpApi\\": "src/"
+        }
+    }
+}
