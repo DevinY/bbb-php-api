@@ -72,8 +72,8 @@ class Bbb {
 
     //建構子，new 物件時執行，用來設定預設值
     function __construct($meeting_id="",$isEncrypt=false) {
-        $this->securitySalt = DEFAULT_SECURITY_SALT;
-        $this->serverBaseUrl = DEFAULT_SERVER_BASE_URL;		
+        if(defined('DEFAULT_SECURITY_SALT')) $this->securitySalt = DEFAULT_SECURITY_SALT;
+        if(defined('DEFAULT_SERVER_BASE_URL')) $this->serverBaseUrl = DEFAULT_SERVER_BASE_URL;
         $this->setModeratorPW("0");//老師身份
         $this->setAttendeePW("1");//學員身份
         if($isEncrypt){
@@ -421,8 +421,8 @@ class Bbb {
 
     //BBB Create
     function setClient($v){
-        $bbb_server_ip=preg_replace('/(http:\/\/(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])\/)(bigbluebutton\/)/', "$1",CONFIG_SERVER_BASE_URL);
-        $this->clientURL=$bbb_server_ip."client/".$v;
+        $bbb_server_url = preg_replace('#(^https?://.*?/)(.+)#uim', '$1',$this->getServerBaseUrl());
+        $this->clientURL=$bbb_server_url."client/".$v;
         return $this;
     }
     function setClientPage($v) {$this->clientPage = $v; return $this;}
