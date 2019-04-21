@@ -69,6 +69,12 @@ class Bbb {
     //設定
     private $configXML="";
     private $xml_param="";
+    //=======bbb added 1.1======
+    private $webcamsOnlyForModerator="";
+    //=======bbb added 2.0=======
+    private $logo="";
+    private $copyright="";
+    private $muteOnStart="";
 
     //建構子，new 物件時執行，用來設定預設值
     function __construct($meeting_id="",$isEncrypt=false) {
@@ -118,10 +124,14 @@ class Bbb {
         }
 
         $welcomeMessage = $this->getWelcome();
-            $params .= '&welcome='.urlencode($welcomeMessage);
+        $params .= '&welcome='.urlencode($welcomeMessage);
 
         $moderatorOnlyMessage = $this->getModeratorOnlyMessage();
         if($moderatorOnlyMessage!="") $params .= '&moderatorOnlyMessage='.urlencode($moderatorOnlyMessage );
+        if($this->logo!="") $params .= '&logo='.urlencode($this->getLogo());
+        if($this->muteOnStart=="true") $params .= '&muteOnStart='.urlencode($this->getMuteOnStart());
+        if($this->copyright!="") $params .= '&copyright='.urlencode($this->getCopyright());
+
 
         // Return the complete URL:
         return ( $creationUrl.$params.'&checksum='.sha1("create".$params.$this->securitySalt) );
@@ -335,7 +345,6 @@ class Bbb {
         return ($recordingsUrl.$params.'&checksum='.sha1("isMeetingRunning".$params.$this->securitySalt));
     }
     //========加解密=========
-    //用於加密使用，有問題請找devin
     //openssl req -nodes -newkey rsa:2048 -keyout private.key
     function enc_str($source){
         //載入私鑰
@@ -452,6 +461,27 @@ class Bbb {
         return $this;
     }
     function getDuration(){ return $this->duration; }
+
+    function setLogo($v){ 
+        if(is_bool($v)){ $this->logo = $v?'true':'false'; }
+        $this->logo=$v; 
+        return $this;
+    }
+    function getLogo(){ return $this->logo; }
+
+    function setMuteOnStart($v){ 
+        if(is_bool($v)){ $this->muteOnStart = $v?'true':'false'; }
+        $this->muteOnStart=$v; 
+        return $this;
+    }
+    function getMuteOnStart(){ return $this->muteOnStart; }
+
+    function setCopyright($v){ 
+        $this->copyright=$v; 
+        return $this;
+    }
+    function getCopyright(){ return $this->copyright; }
+
     function setRecord($v){ 
         if(is_bool($v)){ $this->record = $v?'true':'false'; }
         $this->record=$v; 
