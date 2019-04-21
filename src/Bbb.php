@@ -51,7 +51,7 @@ class Bbb {
     //=====Client Page=======
     private $clientPage="BigBlueButton.html";
 
-    private $materials=[]; //url as value
+    private $materials=array(); //url as value
     //=========Addional Properties======= 
     private $meetingType="";//meeting, class...
     private $roletype="";//teacher or student
