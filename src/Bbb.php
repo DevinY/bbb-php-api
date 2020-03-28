@@ -545,7 +545,7 @@ class Bbb {
     }
     function getXml_Param()
     {
-        if(get_magic_quotes_runtime ()||get_magic_quotes_gpc())
+        if(@get_magic_quotes_runtime ()||@get_magic_quotes_gpc())
         {
             return stripslashes($this->xml_param);
         }else{
