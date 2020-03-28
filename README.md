@@ -49,8 +49,8 @@ $meetingObj->setClientPage("ccc.html");
 </pre>
 ## More Available methods
 <pre>
-$meeting->setWelcome('測試')
-    ->setModeratorOnlyMessage('老師才看的到');
+$meeting->setWelcome('Welecome message for all')
+    ->setModeratorOnlyMessage('Only teacher can see this messsage');
 $meeting->setDuration(20);
 $meeting->setRecord("true"); //Old version
 $meeting->setAutoStartRecording(false);
