@@ -80,8 +80,8 @@ class Bbb {
     function __construct($meeting_id="",$isEncrypt=false) {
         if(defined('DEFAULT_SECURITY_SALT')) $this->securitySalt = DEFAULT_SECURITY_SALT;
         if(defined('DEFAULT_SERVER_BASE_URL')) $this->serverBaseUrl = DEFAULT_SERVER_BASE_URL;
-        $this->setModeratorPW("0");//老師身份
-        $this->setAttendeePW("1");//學員身份
+        $this->setModeratorPW("teacher");//老師身份
+        $this->setAttendeePW("student");//學員身份
         if($isEncrypt){
             $meeting_id=$this->dec_str($meeting_id);
         }
