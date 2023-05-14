@@ -543,14 +543,10 @@ class Bbb {
         // $this->xml_param=$this->encodeURI($v);
         return $this;
     }
+
     function getXml_Param()
     {
-        if(@get_magic_quotes_runtime ()||@get_magic_quotes_gpc())
-        {
-            return stripslashes($this->xml_param);
-        }else{
-            return $this->xml_param;
-        }
+        return $this->xml_param;
     }
 
 }
