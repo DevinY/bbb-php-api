@@ -2,7 +2,7 @@
     "name": "deviny/bbb-php-api",
     "description": "Simple PHP API of The BigBlueButton.",
     "keywords": ["bbb", "BigBlueButton"],
-    "license": "GPL 3.0",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Devin Yang",
